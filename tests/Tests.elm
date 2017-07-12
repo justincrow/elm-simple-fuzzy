@@ -38,6 +38,8 @@ matchTests =
                 \() -> match "wOr,D" "w,ord" |> equal True
             , test "even when spaces do not" <|
                 \() -> match "lst" "its a list" |> equal True
+            , test "numbers are matched" <|
+                \() -> match "1" "number 1" |> equal True
             ]
         , Test.describe "should not match"
             [ test "when needle letters are not in right order" <|
@@ -93,5 +95,7 @@ rootTests =
                 \() -> root "Aaron" |> equal "aaron"
             , test "with some punctuation and spaces letters" <|
                 \() -> root "abc!! f" |> equal "abcf"
+            , test "with some numbers" <|
+                \() -> root "123 abc!! f" |> equal "123abcf"
             ]
         ]

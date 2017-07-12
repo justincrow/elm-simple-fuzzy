@@ -68,7 +68,7 @@ root : String -> String
 root string =
     string
         |> String.toLower
-        |> String.filter Char.isLower
+        |> String.filter (\c -> Char.isLower c || Char.isDigit c)
 
 
 searchHelper : Char -> Maybe String -> Maybe String
